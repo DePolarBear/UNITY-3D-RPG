@@ -4,6 +4,7 @@ using Unity.Cinemachine;
 
 public class ThirdPersonCameraControllScript : MonoBehaviour
 {
+
     [SerializeField] private float zoomSpeed = 2f;
     [SerializeField] private float zoomLerpSpeed = 10f;
     [SerializeField] private float minDistance = 3f;
@@ -28,6 +29,11 @@ public class ThirdPersonCameraControllScript : MonoBehaviour
 
     private void Update()
     {
+        if (orbital == null)
+        {
+            return;
+        }
+
         scrollDelta = zoom.action.ReadValue<Vector2>();
 
         if (Mathf.Abs(scrollDelta.y) > 0.01f)
