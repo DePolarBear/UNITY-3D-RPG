@@ -613,7 +613,7 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard
-  m_DefaultActionMap: PlayerMovement
+  m_DefaultActionMap: 275c64e8-62dc-4a8a-b6b6-2a65fb8e2cf5
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &1039010543
@@ -668,6 +668,7 @@ GameObject:
   - component: {fileID: 1623900976}
   - component: {fileID: 1623900977}
   - component: {fileID: 1623900978}
+  - component: {fileID: 1623900979}
   m_Layer: 0
   m_Name: ThirdPersonCamera
   m_TagString: Untagged
@@ -877,6 +878,23 @@ MonoBehaviour:
         DecelTime: 0
   PlayerIndex: -1
   AutoEnableInputs: 1
+--- !u!114 &1623900979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623900973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4586ba63ff1e622439854c84204c5424, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ThirdPersonCameraControllScript
+  zoomSpeed: 2
+  zoomLerpSpeed: 10
+  minDistance: 3
+  maxDistance: 15
+  zoom: {fileID: -2986270812237624468, guid: 3c16b34609b7a20418ece9e7a96ffb9b, type: 3}
 --- !u!1 &1771711582
 GameObject:
   m_ObjectHideFlags: 0

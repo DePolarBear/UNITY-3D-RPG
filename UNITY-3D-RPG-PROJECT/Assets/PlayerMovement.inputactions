@@ -25,6 +25,16 @@
                     "interactions": "",
                     "initialStateCheck": true,
                     "priority": 0
+                },
+                {
+                    "name": "Zoom",
+                    "type": "Value",
+                    "id": "640e0cae-fbad-4956-ad55-2ad2e235ebaf",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true,
+                    "priority": 0
                 }
             ],
             "bindings": [
@@ -113,6 +123,17 @@
                     "processors": "",
                     "groups": ";Keyboard",
                     "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1e8dd05c-e32d-413f-a717-8b517ec00cab",
+                    "path": "<Mouse>/scroll",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "Zoom",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
