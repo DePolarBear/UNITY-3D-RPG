@@ -446,6 +446,7 @@ GameObject:
   - component: {fileID: 1039010537}
   - component: {fileID: 1039010541}
   - component: {fileID: 1039010542}
+  - component: {fileID: 1039010543}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -571,7 +572,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1039010542
 MonoBehaviour:
@@ -600,9 +601,25 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard
-  m_DefaultActionMap: 275c64e8-62dc-4a8a-b6b6-2a65fb8e2cf5
+  m_DefaultActionMap: PlayerMovement
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1039010543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039010536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd02d62fe6ee2404ea97b5e725a19ad4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  playerBody: {fileID: 1039010541}
+  moveDirection: {x: 0, y: 0, z: 0}
+  moveSpeed: 5
+  move: {fileID: -8860538557111099496, guid: 3c16b34609b7a20418ece9e7a96ffb9b, type: 3}
 --- !u!1 &1771711582
 GameObject:
   m_ObjectHideFlags: 0

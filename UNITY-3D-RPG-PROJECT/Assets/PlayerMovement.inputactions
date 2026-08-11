@@ -9,7 +9,7 @@
                 {
                     "name": "Move",
                     "type": "PassThrough",
-                    "id": "52ed3d31-c719-4362-866e-ddb268089e97",
+                    "id": "67fa8b59-9151-43d7-87be-970547cb39d3",
                     "expectedControlType": "Vector3",
                     "processors": "",
                     "interactions": "",
@@ -20,7 +20,7 @@
             "bindings": [
                 {
                     "name": "3D Vector",
-                    "id": "3f72151b-e998-47e8-b19c-6599958472a4",
+                    "id": "aff32241-1fb4-4516-9939-371fecb86d4e",
                     "path": "3DVector",
                     "interactions": "",
                     "processors": "",
@@ -31,7 +31,7 @@
                 },
                 {
                     "name": "up",
-                    "id": "7e6f8a02-6ef1-4b9a-8b91-9ee98ea23fba",
+                    "id": "bee1d473-3fac-4d47-b0aa-d81fb452515c",
                     "path": "",
                     "interactions": "",
                     "processors": "",
@@ -42,7 +42,7 @@
                 },
                 {
                     "name": "down",
-                    "id": "d0d5dcf2-b400-4b42-86ef-49b165d1a399",
+                    "id": "2a9bd20f-0026-49d0-b11f-124ef701fddb",
                     "path": "",
                     "interactions": "",
                     "processors": "",
@@ -53,7 +53,7 @@
                 },
                 {
                     "name": "left",
-                    "id": "b3d1a899-5ef7-44f4-b906-1c1b4d967afd",
+                    "id": "3d47ae19-15a1-4311-9308-a640345397e9",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
@@ -64,7 +64,7 @@
                 },
                 {
                     "name": "right",
-                    "id": "bf363678-5b59-41ac-ad94-51d1252dcea4",
+                    "id": "98edc2a5-d83f-4d6f-b10d-e12260b5feb8",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
@@ -75,7 +75,7 @@
                 },
                 {
                     "name": "forward",
-                    "id": "8350eb08-0b6e-4dc0-92a9-f601e9835b65",
+                    "id": "fc65f6c8-691e-4898-95ac-025913442097",
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
@@ -86,7 +86,7 @@
                 },
                 {
                     "name": "backward",
-                    "id": "f86eac40-72f4-4f1c-9411-a630f7210ebe",
+                    "id": "2c00761a-50f1-44c9-bff1-533c441a4a1b",
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
@@ -102,7 +102,13 @@
         {
             "name": "Keyboard",
             "bindingGroup": "Keyboard",
-            "devices": []
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
         }
     ]
 }
