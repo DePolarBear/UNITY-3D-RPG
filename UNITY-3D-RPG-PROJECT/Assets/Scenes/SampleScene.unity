@@ -150,17 +150,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   terrain: {fileID: 370099389}
   generator: {fileID: 370099391}
-  prefabyKamenov:
+  prefabyOkraj:
   - {fileID: 5353588270218422151, guid: 83145382902cecc4286a4f62b720fb37, type: 3}
   - {fileID: 1326364778710077615, guid: 7ece6646ef2475b44959032f5d55a8f6, type: 3}
   - {fileID: 2763398485800194716, guid: 232241c4030929146b8c0b57349f65a4, type: 3}
   - {fileID: 4029145346137806361, guid: dd1832de68cba8f48960216dac3c4f3e, type: 3}
   - {fileID: 765085598264726, guid: 4462df8489303ba448bfd5971b82232f, type: 3}
+  prefabyVnutro:
+  - {fileID: 4485714884639539626, guid: 9503c1c726bcf56458f5766baf8bb524, type: 3}
+  - {fileID: 5903104756239672761, guid: e67d3e2fdb18d364f943d685c09cb266, type: 3}
+  - {fileID: 6977529444600223557, guid: 05a887701af30614f819e1db804d10a1, type: 3}
+  - {fileID: 3663980519387192599, guid: 20fad3f1d6cf65941bfcaaaab93a4d09, type: 3}
+  - {fileID: 2680348003693962445, guid: 76f72119263e837459dd528ba521ea53, type: 3}
+  prefabVelky: {fileID: 6050339514624016027, guid: 81d960fe44e3f6b46bcda7b24988e254, type: 3}
   krok: 5
-  okrajPrah: 0.2
-  sanca: 0.95
-  minVelkost: 3
-  maxVelkost: 5
+  okrajPrah: 0.8
+  sanca: 0.8
+  sancaVolne: 0.01
+  pocetVelkych: 8
+  minVelkostVelky: 1
+  maxVelkostVelky: 2
+  minVelkost: 4
+  maxVelkost: 8
   zapustenie: 0.1
 --- !u!4 &261354179
 Transform:
@@ -455,7 +466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   rozlisenie: 513
-  velkost: {x: 800, y: 60, z: 800}
+  velkost: {x: 1000, y: 60, z: 1000}
   nahodnySeed: 0
   seed: 1337
   zakladFrequency: 0.02
@@ -1188,6 +1199,53 @@ MonoBehaviour:
   minDistance: 3
   maxDistance: 15
   zoom: {fileID: -2986270812237624468, guid: 3c16b34609b7a20418ece9e7a96ffb9b, type: 3}
+--- !u!1 &1752034639
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1752034641}
+  - component: {fileID: 1752034640}
+  m_Layer: 0
+  m_Name: World
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1752034640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752034639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 354c960f3db7445468529936f400dd20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  terrain: {fileID: 370099389}
+  generator: {fileID: 370099391}
+  velkostBunky: 4
+--- !u!4 &1752034641
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752034639}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 345.39166, y: 31.71393, z: 403.1114}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1771711582
 GameObject:
   m_ObjectHideFlags: 0
@@ -1312,3 +1370,4 @@ SceneRoots:
   - {fileID: 1039010540}
   - {fileID: 261354179}
   - {fileID: 370099390}
+  - {fileID: 1752034641}
