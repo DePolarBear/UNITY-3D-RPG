@@ -5,6 +5,7 @@ public class RockSpawnerScript : MonoBehaviour
     [Header("Odkazy")]
     public Terrain terrain;
     public TerrainGenerationScript generator;
+    public SvetMriezkaScript mriezka;
 
     [Header("Prefaby")]
     public GameObject[] prefabyOkraj;
@@ -15,7 +16,7 @@ public class RockSpawnerScript : MonoBehaviour
     public float krok = 5f;
     public float okrajPrah = 0.5f;
     public float sanca = 0.9f;
-    public float sancaVolne = 0.02f;
+    public float sancaVolne = 0.005f;
 
     [Header("Velke kamene")]
     public int pocetVelkych = 4;
@@ -25,6 +26,7 @@ public class RockSpawnerScript : MonoBehaviour
     [Header("Vzhlad")]
     public float minVelkost = 0.6f;
     public float maxVelkost = 1.5f;
+    public float polomerObsadenia = 1.5f;
     [Range(0f, 0.5f)] public float zapustenie = 0.15f;
 
     private Vector3 roh;
@@ -60,12 +62,24 @@ public class RockSpawnerScript : MonoBehaviour
                     continue;
                 }
 
+                // rozhodenie, nech nestoja v radoch
                 float px = roh.x + x + Random.Range(-krok * 0.4f, krok * 0.4f);
                 float pz = roh.z + z + Random.Range(-krok * 0.4f, krok * 0.4f);
 
+                float velkost = Random.Range(minVelkost, maxVelkost);
+                float polomerB = velkost * polomerObsadenia;
+
+                // v stene sa kamene smu prekryvat, vo vnutri nie
+                if (!naOkraji && !mriezka.JeVolne(px, pz, polomerB))
+                {
+                    continue;
+                }
+
+                mriezka.Obsad(px, pz, polomerB);
+
                 GameObject prefab = zoznam[Random.Range(0, zoznam.Length)];
 
-                PolozKamen(prefab, px, pz, Random.Range(minVelkost, maxVelkost));
+                PolozKamen(prefab, px, pz, velkost);
                 pocet++;
             }
         }
@@ -85,7 +99,7 @@ public class RockSpawnerScript : MonoBehaviour
         int polozenych = 0;
         int pokusy = 0;
 
-        // poistka na pokusy, nech to nezacyklí
+        // poistka na pokusy, nech sa to nezacykli
         while (polozenych < pocetVelkych && pokusy < 500)
         {
             pokusy++;
@@ -99,9 +113,20 @@ public class RockSpawnerScript : MonoBehaviour
                 continue;
             }
 
-            PolozKamen(prefabVelky, roh.x + x, roh.z + z,
-                Random.Range(minVelkostVelky, maxVelkostVelky));
+            float px = roh.x + x;
+            float pz = roh.z + z;
 
+            float velkost = Random.Range(minVelkostVelky, maxVelkostVelky);
+            float polomerB = velkost * polomerObsadenia * 3f;
+
+            if (!mriezka.JeVolne(px, pz, polomerB))
+            {
+                continue;
+            }
+
+            mriezka.Obsad(px, pz, polomerB);
+
+            PolozKamen(prefabVelky, px, pz, velkost);
             polozenych++;
         }
     }
@@ -113,6 +138,7 @@ public class RockSpawnerScript : MonoBehaviour
         GameObject kamen = Instantiate(prefab, new Vector3(px, 0f, pz), otocenie, transform);
         kamen.transform.localScale = Vector3.one * velkost;
 
+        // posad kamen na najnizsi bod terenu pod nim
         Bounds hranice;
 
         if (SkusHranice(kamen, out hranice))
