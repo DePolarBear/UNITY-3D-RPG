@@ -27,7 +27,7 @@ public class TerrainGenerationScript : MonoBehaviour
     [Header("Low poly")]
     public int pocetSchodov = 12;
 
-    private void Start()
+    private void Awake()
     {
         if (nahodnySeed)
         {
@@ -82,7 +82,8 @@ public class TerrainGenerationScript : MonoBehaviour
                 h += k * kopceVyska;
 
                 // 3. hradba po obvode
-                h += Okraj(x, z) * okrajVyska;
+                float o = Okraj(x, z);
+                h = Mathf.Lerp(h, okrajVyska, o);
 
                 // 4. terasovanie
                 if (pocetSchodov > 0)
@@ -97,11 +98,8 @@ public class TerrainGenerationScript : MonoBehaviour
         data.SetHeights(0, 0, vysky);
     }
 
-    private float Okraj(int x, int z)
+    public float OkrajPodiel(float fx, float fz)
     {
-        float fx = (float)x / (rozlisenie - 1);
-        float fz = (float)z / (rozlisenie - 1);
-
         float d = Mathf.Min(Mathf.Min(fx, 1f - fx), Mathf.Min(fz, 1f - fz));
 
         if (d > okrajSirka)
@@ -111,5 +109,10 @@ public class TerrainGenerationScript : MonoBehaviour
 
         float t = 1f - (d / okrajSirka);
         return t * t;
+    }
+
+    private float Okraj(int x, int z)
+    {
+        return OkrajPodiel((float)x / (rozlisenie - 1), (float)z / (rozlisenie - 1));
     }
 }
