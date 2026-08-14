@@ -157,11 +157,11 @@ MonoBehaviour:
   - {fileID: 4029145346137806361, guid: dd1832de68cba8f48960216dac3c4f3e, type: 3}
   - {fileID: 765085598264726, guid: 4462df8489303ba448bfd5971b82232f, type: 3}
   krok: 5
-  okrajPrah: 0.2
-  sanca: 0.95
-  minVelkost: 3
-  maxVelkost: 5
-  zapustenie: 0.1
+  okrajPrah: 0.5
+  sanca: 0.9
+  minVelkost: 1.5
+  maxVelkost: 3
+  zapustenie: 0.8
 --- !u!4 &261354179
 Transform:
   m_ObjectHideFlags: 0
@@ -464,7 +464,7 @@ MonoBehaviour:
   kopcePrah: 0.1
   kopceVyska: 0.5
   okrajSirka: 0.08
-  okrajVyska: 0.7
+  okrajVyska: 1
   pocetSchodov: 70
 --- !u!1 &410087039
 GameObject:
