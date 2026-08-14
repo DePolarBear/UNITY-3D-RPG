@@ -637,6 +637,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f6bde324d8f9084b9ae0606f0a9cca9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  terrain: {fileID: 370099389}
+  generator: {fileID: 370099391}
+  mriezka: {fileID: 1752034640}
+  prefabZnacky: {fileID: 2349845882981569454, guid: d9b92a1b7c05ab7428d87bef86c93aa7, type: 3}
+  pocetDedin: 4
+  polomerDediny: 25
+  maxRozdielVysky: 3
+  minVzdialenost: 150
+  okrajStop: 0.05
 --- !u!4 &688436553
 Transform:
   m_ObjectHideFlags: 0
