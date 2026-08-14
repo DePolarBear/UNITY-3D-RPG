@@ -17,6 +17,7 @@ public class VillageSpawnerScript : MonoBehaviour
     public float okrajStop = 0.05f;
 
     [Header("Domy")]
+    public Vector3 opravaRotacie = new Vector3(-90f, 0f, 0f);
     public GameObject[] prefabyDomov;
     public int minDomov = 4;
     public int maxDomov = 8;
@@ -181,7 +182,7 @@ public class VillageSpawnerScript : MonoBehaviour
             Quaternion otocenie = Quaternion.LookRotation(doStredu);
 
             GameObject prefab = prefabyDomov[Random.Range(0, prefabyDomov.Length)];
-            Instantiate(prefab, new Vector3(px, py, pz), otocenie, transform);
+            Instantiate(prefab, new Vector3(px, py, pz), otocenie * Quaternion.Euler(opravaRotacie), transform);
         }
     }
 }

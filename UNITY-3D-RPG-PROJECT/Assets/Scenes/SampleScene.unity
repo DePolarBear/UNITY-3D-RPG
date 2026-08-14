@@ -280,7 +280,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.1521234, y: 0.000000041656318, z: -0.000000006411522, w: 0.98836154}
-  m_LocalPosition: {x: 0.71429, y: 26.903528, z: -4.0542946}
+  m_LocalPosition: {x: 571, y: 33.303528, z: 348.2314}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -640,12 +640,13 @@ MonoBehaviour:
   terrain: {fileID: 370099389}
   generator: {fileID: 370099391}
   mriezka: {fileID: 1752034640}
-  prefabZnacky: {fileID: 919132149155446097, guid: 5f55d175493174d4c95e12271917a505, type: 3}
-  pocetDedin: 4
-  polomerDediny: 25
-  maxRozdielVysky: 3
+  prefabZnacky: {fileID: 4422225061126115926, guid: cb898b4ae14f2144a977482d1ec0cf5e, type: 3}
+  pocetDedin: 6
+  polomerDediny: 40
+  maxRozdielVysky: 5
   minVzdialenost: 150
   okrajStop: 0.05
+  opravaRotacie: {x: 90, y: 0, z: 0}
   prefabyDomov:
   - {fileID: 919132149155446097, guid: 21084ff7021681841a8cafff1208a4ee, type: 3}
   - {fileID: 919132149155446097, guid: 2906e95bab11a154193b6d70a1e98679, type: 3}
@@ -657,7 +658,7 @@ MonoBehaviour:
   - {fileID: 919132149155446097, guid: a1ccb954455ff0b4bb3444be6f1a8508, type: 3}
   minDomov: 4
   maxDomov: 8
-  polomerZastavby: 15
+  polomerZastavby: 25
 --- !u!4 &688436553
 Transform:
   m_ObjectHideFlags: 0
@@ -810,7 +811,7 @@ Transform:
   m_GameObject: {fileID: 1039010536}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.71429, y: 25.4, z: 0.71429}
+  m_LocalPosition: {x: 571, y: 31.8, z: 353}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -892,7 +893,7 @@ MonoBehaviour:
   rychlostOtacania: 10
   playerBody: {fileID: 1039010541}
   moveDirection: {x: 0, y: 0, z: 0}
-  moveSpeed: 5
+  moveSpeed: 70
   jump: {fileID: 8973153567499922699, guid: 3c16b34609b7a20418ece9e7a96ffb9b, type: 3}
   jumpStrength: 10
   gravityScale: 3
@@ -1172,7 +1173,7 @@ Transform:
   m_GameObject: {fileID: 1623900973}
   serializedVersion: 2
   m_LocalRotation: {x: 0.1521234, y: 0.00000004165632, z: -0.0000000064115215, w: 0.98836154}
-  m_LocalPosition: {x: 0.71429, y: 26.903528, z: -4.0542946}
+  m_LocalPosition: {x: 571, y: 33.303528, z: 348.2314}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
