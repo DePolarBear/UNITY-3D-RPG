@@ -640,12 +640,24 @@ MonoBehaviour:
   terrain: {fileID: 370099389}
   generator: {fileID: 370099391}
   mriezka: {fileID: 1752034640}
-  prefabZnacky: {fileID: 2349845882981569454, guid: d9b92a1b7c05ab7428d87bef86c93aa7, type: 3}
+  prefabZnacky: {fileID: 919132149155446097, guid: 5f55d175493174d4c95e12271917a505, type: 3}
   pocetDedin: 4
   polomerDediny: 25
   maxRozdielVysky: 3
   minVzdialenost: 150
   okrajStop: 0.05
+  prefabyDomov:
+  - {fileID: 919132149155446097, guid: 21084ff7021681841a8cafff1208a4ee, type: 3}
+  - {fileID: 919132149155446097, guid: 2906e95bab11a154193b6d70a1e98679, type: 3}
+  - {fileID: 919132149155446097, guid: ab5ecd22b63cb04469586353b17ceaca, type: 3}
+  - {fileID: 919132149155446097, guid: 59d0615887090a9408ae53b0995c339d, type: 3}
+  - {fileID: 919132149155446097, guid: fcce7807c040a704996f10182de12ffa, type: 3}
+  - {fileID: 919132149155446097, guid: cb56337c69275df43be01fdc0d548278, type: 3}
+  - {fileID: 919132149155446097, guid: e6493144d3502cb479f675e53fb3fd5f, type: 3}
+  - {fileID: 919132149155446097, guid: a1ccb954455ff0b4bb3444be6f1a8508, type: 3}
+  minDomov: 4
+  maxDomov: 8
+  polomerZastavby: 15
 --- !u!4 &688436553
 Transform:
   m_ObjectHideFlags: 0
