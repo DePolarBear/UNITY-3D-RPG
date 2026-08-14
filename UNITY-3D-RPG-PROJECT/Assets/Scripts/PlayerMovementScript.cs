@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovementScript : MonoBehaviour
 {
+    [Header("Pohyb")]
+    public InputActionReference move;
     [SerializeField] private Transform cameraTransform;
     [SerializeField] private bool shouldFaceMoveDirection = false;
     [SerializeField] private float rychlostOtacania = 10f;
@@ -12,14 +14,25 @@ public class PlayerMovementScript : MonoBehaviour
 
     [SerializeField] private float moveSpeed = 5f;
 
-    public InputActionReference move;
+    [Header("Skok")]
+    public InputActionReference jump;
+    public float jumpStrength = 10f;
+    public float gravityScale = 3f;
+    public float fallMultiplier = 1.5f;
+    public LayerMask groundLayer;
+    public float groundCheckDistance = 0.3f;
+
+    private bool jumpQueued;
 
     // Update is called once per frame
     void Update()
     {
         moveDirection = move.action.ReadValue<Vector3>();
 
-
+        if (jump.action.WasPressedThisFrame())
+        {
+            jumpQueued = true;
+        }
     }
 
     private void FixedUpdate()
@@ -44,5 +57,27 @@ public class PlayerMovementScript : MonoBehaviour
             Quaternion cielova = Quaternion.LookRotation(smer);
             playerBody.rotation = Quaternion.Slerp(playerBody.rotation, cielova, rychlostOtacania * Time.fixedDeltaTime);
         }
+
+        if (jumpQueued && IsGrounded())
+        {
+            Vector3 v = playerBody.linearVelocity;
+            v.y = jumpStrength;
+            playerBody.linearVelocity = v;
+        }
+        jumpQueued = false;
+
+        float scale = (playerBody.linearVelocity.y < 0f) ? gravityScale * fallMultiplier : gravityScale;
+        playerBody.AddForce(Physics.gravity * scale, ForceMode.Acceleration);
+    }
+
+    private void Awake()
+    {
+        playerBody.useGravity = false;
+    }
+
+    private bool IsGrounded()
+    {
+        float dlzka = 0.5f + groundCheckDistance;
+        return Physics.Raycast(transform.position, Vector3.down, dlzka, groundLayer);
     }
 }

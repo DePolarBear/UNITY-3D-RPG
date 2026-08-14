@@ -136,6 +136,7 @@ public class RockSpawnerScript : MonoBehaviour
         Quaternion otocenie = Quaternion.Euler(0f, Random.Range(0f, 360f), 0f);
 
         GameObject kamen = Instantiate(prefab, new Vector3(px, 0f, pz), otocenie, transform);
+        NastavVrstvu(kamen, LayerMask.NameToLayer("Ground"));
         kamen.transform.localScale = Vector3.one * velkost;
 
         // posad kamen na najnizsi bod terenu pod nim
@@ -168,6 +169,16 @@ public class RockSpawnerScript : MonoBehaviour
         }
 
         return true;
+    }
+
+    private void NastavVrstvu(GameObject objekt, int vrstva)
+    {
+        objekt.layer = vrstva;
+
+        foreach (Transform dieta in objekt.transform)
+        {
+            NastavVrstvu(dieta.gameObject, vrstva);
+        }
     }
 
     private float NajnizsiaVyska(float px, float pz, float polomer)
