@@ -17,11 +17,15 @@ public class VillageSpawnerScript : MonoBehaviour
     public float okrajStop = 0.05f;
 
     [Header("Domy")]
-    public Vector3 opravaRotacie = new Vector3(-90f, 0f, 0f);
+    public Vector3 opravaRotacie = new Vector3(0f, 0f, 0f);
     public GameObject[] prefabyDomov;
     public int minDomov = 4;
     public int maxDomov = 8;
     public float polomerZastavby = 15f;
+
+    [Header("NPC")]
+    public GameObject prefabNpc;
+    public string[] menaNpc = { "Aldric", "Mira", "Borek", "Vela" };
 
     private List<Vector3> dediny = new List<Vector3>();
 
@@ -67,6 +71,18 @@ public class VillageSpawnerScript : MonoBehaviour
             float py = roh.y + terrain.SampleHeight(new Vector3(px, 0f, pz));
             Vector3 poloha = new Vector3(px, py, pz);
             PostavDomy(poloha);
+
+            if (prefabNpc != null)
+            {
+                GameObject npc = Instantiate(prefabNpc, poloha, Quaternion.identity, transform);
+
+                NpcScript data = npc.GetComponent<NpcScript>();
+
+                if (data != null && menaNpc.Length > 0)
+                {
+                    data.meno = menaNpc[dediny.Count % menaNpc.Length];
+                }
+            }
 
             dediny.Add(poloha);
             mriezka.Obsad(px, pz, polomerDediny);

@@ -280,7 +280,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.1521234, y: 0.000000041656318, z: -0.000000006411522, w: 0.98836154}
-  m_LocalPosition: {x: 571, y: 33.303528, z: 348.2314}
+  m_LocalPosition: {x: 65, y: 33.303528, z: 348.2314}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -641,24 +641,26 @@ MonoBehaviour:
   generator: {fileID: 370099391}
   mriezka: {fileID: 1752034640}
   prefabZnacky: {fileID: 4422225061126115926, guid: cb898b4ae14f2144a977482d1ec0cf5e, type: 3}
-  pocetDedin: 6
-  polomerDediny: 40
+  pocetDedin: 4
+  polomerDediny: 20
   maxRozdielVysky: 5
   minVzdialenost: 150
   okrajStop: 0.05
-  opravaRotacie: {x: 90, y: 0, z: 0}
+  opravaRotacie: {x: 0, y: 0, z: 0}
   prefabyDomov:
-  - {fileID: 919132149155446097, guid: 21084ff7021681841a8cafff1208a4ee, type: 3}
-  - {fileID: 919132149155446097, guid: 2906e95bab11a154193b6d70a1e98679, type: 3}
-  - {fileID: 919132149155446097, guid: ab5ecd22b63cb04469586353b17ceaca, type: 3}
-  - {fileID: 919132149155446097, guid: 59d0615887090a9408ae53b0995c339d, type: 3}
-  - {fileID: 919132149155446097, guid: fcce7807c040a704996f10182de12ffa, type: 3}
-  - {fileID: 919132149155446097, guid: cb56337c69275df43be01fdc0d548278, type: 3}
-  - {fileID: 919132149155446097, guid: e6493144d3502cb479f675e53fb3fd5f, type: 3}
-  - {fileID: 919132149155446097, guid: a1ccb954455ff0b4bb3444be6f1a8508, type: 3}
-  minDomov: 4
-  maxDomov: 8
-  polomerZastavby: 25
+  - {fileID: 7320281983326923416, guid: cc813a6e1b9cb5244baf0e5d125570fd, type: 3}
+  - {fileID: 1298580185719300852, guid: 6c1c653d92504634e9aae2e54c901283, type: 3}
+  - {fileID: 5594060413004727227, guid: a51d46ac2c044cb4a81ed834c75f1054, type: 3}
+  - {fileID: 4263613500853271628, guid: 5355315a110badb45baa385d52edf302, type: 3}
+  minDomov: 3
+  maxDomov: 6
+  polomerZastavby: 20
+  prefabNpc: {fileID: 4523870795209990248, guid: 4b0715c0abec9f343ab3f8913cd0937a, type: 3}
+  menaNpc:
+  - Aldric
+  - Mira
+  - Borek
+  - Vela
 --- !u!4 &688436553
 Transform:
   m_ObjectHideFlags: 0
@@ -668,7 +670,7 @@ Transform:
   m_GameObject: {fileID: 688436551}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 541.28345, y: 23.4312, z: 338.40045}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -811,7 +813,7 @@ Transform:
   m_GameObject: {fileID: 1039010536}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 571, y: 31.8, z: 353}
+  m_LocalPosition: {x: 65, y: 31.8, z: 353}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -893,7 +895,7 @@ MonoBehaviour:
   rychlostOtacania: 10
   playerBody: {fileID: 1039010541}
   moveDirection: {x: 0, y: 0, z: 0}
-  moveSpeed: 70
+  moveSpeed: 5
   jump: {fileID: 8973153567499922699, guid: 3c16b34609b7a20418ece9e7a96ffb9b, type: 3}
   jumpStrength: 10
   gravityScale: 3
@@ -1173,7 +1175,7 @@ Transform:
   m_GameObject: {fileID: 1623900973}
   serializedVersion: 2
   m_LocalRotation: {x: 0.1521234, y: 0.00000004165632, z: -0.0000000064115215, w: 0.98836154}
-  m_LocalPosition: {x: 571, y: 33.303528, z: 348.2314}
+  m_LocalPosition: {x: 65, y: 33.303528, z: 348.2314}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
