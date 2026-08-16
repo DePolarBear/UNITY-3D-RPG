@@ -642,7 +642,7 @@ MonoBehaviour:
   mriezka: {fileID: 1752034640}
   prefabZnacky: {fileID: 4422225061126115926, guid: cb898b4ae14f2144a977482d1ec0cf5e, type: 3}
   pocetDedin: 4
-  polomerDediny: 40
+  polomerDediny: 30
   maxRozdielVysky: 5
   minVzdialenost: 150
   okrajStop: 0.05
@@ -663,6 +663,7 @@ MonoBehaviour:
   - Mira
   - Borek
   - Vela
+  odstupNpc: 5
 --- !u!4 &688436553
 Transform:
   m_ObjectHideFlags: 0

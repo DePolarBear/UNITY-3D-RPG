@@ -28,6 +28,7 @@ public class VillageSpawnerScript : MonoBehaviour
     [Header("NPC")]
     public GameObject prefabNpc;
     public string[] menaNpc = { "Aldric", "Mira", "Borek", "Vela" };
+    public float odstupNpc = 5f;
 
     private List<Vector3> dediny = new List<Vector3>();
 
@@ -76,7 +77,15 @@ public class VillageSpawnerScript : MonoBehaviour
 
             if (prefabNpc != null)
             {
-                GameObject npc = Instantiate(prefabNpc, poloha, Quaternion.identity, transform);
+                float uhol = Random.Range(0f, Mathf.PI * 2f);
+
+                float nx = poloha.x + Mathf.Cos(uhol) * odstupNpc;
+                float nz = poloha.z + Mathf.Sin(uhol) * odstupNpc;
+                float ny = roh.y + terrain.SampleHeight(new Vector3(nx, 0f, nz));
+
+                Quaternion natocenie = Quaternion.Euler(0f, Random.Range(0f, 360f), 0f);
+
+                GameObject npc = Instantiate(prefabNpc, new Vector3(nx, ny, nz), natocenie, transform);
 
                 NpcScript data = npc.GetComponent<NpcScript>();
 
@@ -84,14 +93,6 @@ public class VillageSpawnerScript : MonoBehaviour
                 {
                     data.meno = menaNpc[dediny.Count % menaNpc.Length];
                 }
-            }
-
-            dediny.Add(poloha);
-            mriezka.Obsad(px, pz, polomerDediny);
-
-            if (prefabZnacky != null)
-            {
-                Instantiate(prefabZnacky, poloha, Quaternion.identity, transform);
             }
         }
 
