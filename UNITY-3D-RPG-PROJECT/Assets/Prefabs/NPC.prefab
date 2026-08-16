@@ -128,3 +128,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   meno: Dedincan
+  uzly:
+  - text: Zdravim ta, cudzinec.
+    odpovede:
+    - text: Kto si?
+      kamVedie: 1
+    - text: Zbohom.
+      kamVedie: -1
+  - text: Som Aldric, straznik tejto dediny.
+    odpovede:
+    - text: Rozumiem.
+      kamVedie: 2
+  - text: Daj si pozor na vlkov v lese.
+    odpovede:
+    - text: Vdaka.
+      kamVedie: -1

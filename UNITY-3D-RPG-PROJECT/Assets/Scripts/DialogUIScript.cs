@@ -14,11 +14,19 @@ public class DialogUIScript : MonoBehaviour
         Skry();
     }
 
-    public void Zobraz(string meno, string obsah)
+    public void Zobraz(string meno, DialogUzol uzol)
     {
         panel.SetActive(true);
         textMena.text = meno;
-        textObsahu.text = obsah;
+
+        string s = uzol.text + "\n";
+
+        for (int i = 0; i < uzol.odpovede.Length; i++)
+        {
+            s += "\n" + (i + 1) + ") " + uzol.odpovede[i].text;
+        }
+
+        textObsahu.text = s;
         JeOtvoreny = true;
     }
 

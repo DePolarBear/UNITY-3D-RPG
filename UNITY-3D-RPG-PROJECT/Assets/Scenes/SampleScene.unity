@@ -694,8 +694,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32
-  m_fontSizeBase: 32
+  m_fontSize: 42
+  m_fontSizeBase: 42
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1242,9 +1242,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   interact: {fileID: 380525368987446867, guid: 3c16b34609b7a20418ece9e7a96ffb9b, type: 3}
+  dialog: {fileID: 1165738700}
   pohyb: {fileID: 1039010543}
   dosah: 3
-  dialog: {fileID: 1165738700}
 --- !u!1 &1120634223
 GameObject:
   m_ObjectHideFlags: 0
@@ -1863,8 +1863,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
