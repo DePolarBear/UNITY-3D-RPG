@@ -11,16 +11,6 @@ public class InteractionScript : MonoBehaviour
     private NpcScript aktivneNpc;
     private int aktualnyUzol;
 
-    private void OnEnable()
-    {
-        interact.action.Enable();
-    }
-
-    private void OnDisable()
-    {
-        interact.action.Disable();
-    }
-
     private void Update()
     {
         if (dialog.JeOtvoreny)
@@ -31,19 +21,19 @@ public class InteractionScript : MonoBehaviour
 
         NpcScript blizke = NajdiNpc();
 
-        if (blizke != null && blizke.uzly.Length > 0 && interact.action.WasPressedThisFrame())
+        if (blizke != null && blizke.Uzly.Length > 0 && interact.action.WasPressedThisFrame())
         {
             aktivneNpc = blizke;
             aktualnyUzol = 0;
 
-            dialog.Zobraz(aktivneNpc.meno, aktivneNpc.uzly[0]);
+            dialog.Zobraz(aktivneNpc.Meno, aktivneNpc.Uzly[0]);
             pohyb.zablokovany = true;
         }
     }
 
     private void SpracujOdpoved()
     {
-        DialogUzol uzol = aktivneNpc.uzly[aktualnyUzol];
+        DialogUzol uzol = aktivneNpc.Uzly[aktualnyUzol];
 
         for (int i = 0; i < uzol.odpovede.Length; i++)
         {
@@ -54,14 +44,14 @@ public class InteractionScript : MonoBehaviour
 
             int kam = uzol.odpovede[i].kamVedie;
 
-            if (kam < 0 || kam >= aktivneNpc.uzly.Length)
+            if (kam < 0 || kam >= aktivneNpc.Uzly.Length)
             {
                 Zavri();
             }
             else
             {
                 aktualnyUzol = kam;
-                dialog.Zobraz(aktivneNpc.meno, aktivneNpc.uzly[aktualnyUzol]);
+                dialog.Zobraz(aktivneNpc.Meno, aktivneNpc.Uzly[aktualnyUzol]);
             }
 
             return;

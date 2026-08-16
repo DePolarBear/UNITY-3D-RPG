@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f5bfba4a2555a947a0298bfe2f9ddbd, type: 3}
+  m_Name: Dialog_Mira
+  m_EditorClassIdentifier: Assembly-CSharp::DialogAsset
+  meno: Mira
+  uzly:
+  - text: Pozor kam slapes, tie bylinky rastu len tu.
+    odpovede:
+    - text: Co je to za bylinky?
+      kamVedie: 1
+    - text: Prepacte.
+      kamVedie: -1
+  - text: Krvavnik. Zastavi krvacanie rychlejsie ako modlitba.
+    odpovede:
+    - text: Predas mi nejaky?
+      kamVedie: 2
+    - text: Zaujimave.
+      kamVedie: -1
+  - text: Nazbieraj mi ich pri potoku a polovicu si nechas.
+    odpovede:
+    - text: Plati.
+      kamVedie: -1

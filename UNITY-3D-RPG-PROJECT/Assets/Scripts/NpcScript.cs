@@ -5,7 +5,7 @@ using UnityEngine;
 public class Odpoved
 {
     public string text;
-    public int kamVedie = -1;   // -1 = zavriet rozhovor
+    public int kamVedie = -1;
 }
 
 [Serializable]
@@ -17,6 +17,15 @@ public class DialogUzol
 
 public class NpcScript : MonoBehaviour
 {
-    public string meno = "Dedincan";
-    public DialogUzol[] uzly;
+    public DialogAsset dialog;
+
+    public string Meno
+    {
+        get { return dialog != null ? dialog.meno : "Neznamy"; }
+    }
+
+    public DialogUzol[] Uzly
+    {
+        get { return dialog != null ? dialog.uzly : new DialogUzol[0]; }
+    }
 }

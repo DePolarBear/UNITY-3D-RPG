@@ -29,7 +29,7 @@ public class VillageSpawnerScript : MonoBehaviour
     [Header("NPC")]
     public GameObject prefabNpc;
     public float odstupNpc = 5f;
-    public string[] menaNpc = { "Aldric", "Mira", "Borek", "Vela" };
+    public DialogAsset[] dialogy;
     public float vyskaNpc = 1f;
 
     private List<Vector3> dediny = new List<Vector3>();
@@ -97,9 +97,9 @@ public class VillageSpawnerScript : MonoBehaviour
 
                 NpcScript data = npc.GetComponent<NpcScript>();
 
-                if (data != null && menaNpc.Length > 0)
+                if (data != null && dialogy.Length > 0)
                 {
-                    data.meno = menaNpc[(dediny.Count - 1) % menaNpc.Length];
+                    data.dialog = dialogy[(dediny.Count - 1) % dialogy.Length];
                 }
             }
 

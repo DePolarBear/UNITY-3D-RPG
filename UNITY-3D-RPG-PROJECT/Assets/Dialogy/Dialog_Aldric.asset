@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f5bfba4a2555a947a0298bfe2f9ddbd, type: 3}
+  m_Name: Dialog_Aldric
+  m_EditorClassIdentifier: Assembly-CSharp::DialogAsset
+  meno: Aldric
+  uzly:
+  - text: Stoj. Do dediny sa teraz nechodi len tak.
+    odpovede:
+    - text: Kto si?
+      kamVedie: 1
+    - text: Preco nie?
+      kamVedie: 2
+    - text: Uz odchadzam.
+      kamVedie: -1
+  - text: Aldric. Strazim tuto branu, odkedy si pamatam.
+    odpovede:
+    - text: A co strazis pred nami?
+      kamVedie: 2
+    - text: Rozumiem.
+      kamVedie: -1
+  - text: Z lesa na severe zaculi vlci zavijanie. Tri noci po sebe.
+    odpovede:
+    - text: Moznem s tym pomoct?
+      kamVedie: 3
+    - text: To nie je moj problem.
+      kamVedie: -1
+  - text: Ak sa vratis so vlcou kozou, dedina ti to nezabudne.
+    odpovede:
+    - text: Pozriem sa na to.
+      kamVedie: -1
