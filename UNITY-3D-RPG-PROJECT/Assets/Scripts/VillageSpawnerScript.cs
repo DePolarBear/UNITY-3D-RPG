@@ -30,6 +30,7 @@ public class VillageSpawnerScript : MonoBehaviour
     public GameObject prefabNpc;
     public float odstupNpc = 5f;
     public string[] menaNpc = { "Aldric", "Mira", "Borek", "Vela" };
+    public float vyskaNpc = 1f;
 
     private List<Vector3> dediny = new List<Vector3>();
 
@@ -88,7 +89,7 @@ public class VillageSpawnerScript : MonoBehaviour
 
                 float nx = poloha.x + Mathf.Cos(uhol) * odstupNpc;
                 float nz = poloha.z + Mathf.Sin(uhol) * odstupNpc;
-                float ny = roh.y + terrain.SampleHeight(new Vector3(nx, 0f, nz));
+                float ny = roh.y + terrain.SampleHeight(new Vector3(nx, 0f, nz)) + vyskaNpc;
 
                 Quaternion natocenie = Quaternion.Euler(0f, Random.Range(0f, 360f), 0f);
 
