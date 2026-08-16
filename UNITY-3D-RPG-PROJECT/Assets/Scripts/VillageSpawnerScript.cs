@@ -11,24 +11,25 @@ public class VillageSpawnerScript : MonoBehaviour
 
     [Header("Dediny")]
     public int pocetDedin = 4;
-    public float polomerDediny = 25f;
-    public float maxRozdielVysky = 3f;
+    public float polomerDediny = 20f;
+    public float maxRozdielVysky = 5f;
     public float minVzdialenost = 150f;
     public float okrajStop = 0.05f;
 
     [Header("Domy")]
-    public Vector3 opravaRotacie = new Vector3(0f, 0f, 0f);
     public GameObject[] prefabyDomov;
-    public int minDomov = 4;
-    public int maxDomov = 8;
-    public float polomerZastavby = 15f;
     public GameObject[] prefabyJedinecne;
     [Range(0f, 1f)] public float sancaJedinecnej = 0.7f;
+    public int minDomov = 3;
+    public int maxDomov = 6;
+    public float polomerZastavby = 15f;
+    public float minRozostupDomov = 12f;
+    public Vector3 opravaRotacie = Vector3.zero;
 
     [Header("NPC")]
     public GameObject prefabNpc;
-    public string[] menaNpc = { "Aldric", "Mira", "Borek", "Vela" };
     public float odstupNpc = 5f;
+    public string[] menaNpc = { "Aldric", "Mira", "Borek", "Vela" };
 
     private List<Vector3> dediny = new List<Vector3>();
 
@@ -68,11 +69,17 @@ public class VillageSpawnerScript : MonoBehaviour
                 continue;
             }
 
+            // zarovnat teren, az potom merat vysku
             float vyskaSveta = terrain.SampleHeight(new Vector3(px, 0f, pz));
             Zarovnaj(px, pz, vyskaSveta / terrain.terrainData.size.y);
 
             float py = roh.y + terrain.SampleHeight(new Vector3(px, 0f, pz));
             Vector3 poloha = new Vector3(px, py, pz);
+
+            // ZAPISAT HNED, nech dalsie pokusy vedia, ze tu uz dedina je
+            dediny.Add(poloha);
+            mriezka.Obsad(px, pz, polomerDediny);
+
             PostavDomy(poloha);
 
             if (prefabNpc != null)
@@ -91,8 +98,13 @@ public class VillageSpawnerScript : MonoBehaviour
 
                 if (data != null && menaNpc.Length > 0)
                 {
-                    data.meno = menaNpc[dediny.Count % menaNpc.Length];
+                    data.meno = menaNpc[(dediny.Count - 1) % menaNpc.Length];
                 }
+            }
+
+            if (prefabZnacky != null)
+            {
+                Instantiate(prefabZnacky, poloha, Quaternion.identity, transform);
             }
         }
 
@@ -211,14 +223,46 @@ public class VillageSpawnerScript : MonoBehaviour
             naPostavenie[j] = docasny;
         }
 
-        // 3. rozostavit po kruhu
+        // 3. rozostavit po kruhu, ale drzat rozostupy
+        List<Vector3> polozene = new List<Vector3>();
+
         for (int i = 0; i < naPostavenie.Count; i++)
         {
-            float uhol = (i + Random.Range(-0.3f, 0.3f)) * Mathf.PI * 2f / naPostavenie.Count;
-            float vzdialenost = polomerZastavby * Random.Range(0.6f, 1f);
+            bool naslo = false;
+            float px = 0f;
+            float pz = 0f;
 
-            float px = stred.x + Mathf.Cos(uhol) * vzdialenost;
-            float pz = stred.z + Mathf.Sin(uhol) * vzdialenost;
+            for (int pokus = 0; pokus < 20 && !naslo; pokus++)
+            {
+                float uhol = (i + Random.Range(-0.35f, 0.35f)) * Mathf.PI * 2f / naPostavenie.Count;
+                float vzdialenost = polomerZastavby * Random.Range(0.7f, 1f);
+
+                px = stred.x + Mathf.Cos(uhol) * vzdialenost;
+                pz = stred.z + Mathf.Sin(uhol) * vzdialenost;
+
+                naslo = true;
+
+                foreach (Vector3 p in polozene)
+                {
+                    float dx = p.x - px;
+                    float dz = p.z - pz;
+
+                    if (dx * dx + dz * dz < minRozostupDomov * minRozostupDomov)
+                    {
+                        naslo = false;
+                        break;
+                    }
+                }
+            }
+
+            // ak sa po 20 pokusoch nenaslo miesto, tento dom preskocime
+            if (!naslo)
+            {
+                continue;
+            }
+
+            polozene.Add(new Vector3(px, 0f, pz));
+
             float py = terrain.transform.position.y + terrain.SampleHeight(new Vector3(px, 0f, pz));
 
             Vector3 doStredu = new Vector3(stred.x - px, 0f, stred.z - pz);

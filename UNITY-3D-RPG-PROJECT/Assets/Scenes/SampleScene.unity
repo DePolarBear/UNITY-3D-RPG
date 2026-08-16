@@ -641,29 +641,30 @@ MonoBehaviour:
   generator: {fileID: 370099391}
   mriezka: {fileID: 1752034640}
   prefabZnacky: {fileID: 4422225061126115926, guid: cb898b4ae14f2144a977482d1ec0cf5e, type: 3}
-  pocetDedin: 4
+  pocetDedin: 6
   polomerDediny: 30
   maxRozdielVysky: 5
   minVzdialenost: 150
   okrajStop: 0.05
-  opravaRotacie: {x: 0, y: -90, z: 0}
   prefabyDomov:
   - {fileID: 1298580185719300852, guid: 6c1c653d92504634e9aae2e54c901283, type: 3}
   - {fileID: 5594060413004727227, guid: a51d46ac2c044cb4a81ed834c75f1054, type: 3}
-  minDomov: 3
-  maxDomov: 6
-  polomerZastavby: 30
   prefabyJedinecne:
   - {fileID: 7320281983326923416, guid: cc813a6e1b9cb5244baf0e5d125570fd, type: 3}
   - {fileID: 4263613500853271628, guid: 5355315a110badb45baa385d52edf302, type: 3}
   sancaJedinecnej: 0.7
+  minDomov: 3
+  maxDomov: 6
+  polomerZastavby: 30
+  minRozostupDomov: 15
+  opravaRotacie: {x: 0, y: -90, z: 0}
   prefabNpc: {fileID: 4523870795209990248, guid: 4b0715c0abec9f343ab3f8913cd0937a, type: 3}
+  odstupNpc: 5
   menaNpc:
   - Aldric
   - Mira
   - Borek
   - Vela
-  odstupNpc: 5
 --- !u!4 &688436553
 Transform:
   m_ObjectHideFlags: 0
