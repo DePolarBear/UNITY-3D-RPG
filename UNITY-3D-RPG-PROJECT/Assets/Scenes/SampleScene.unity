@@ -1196,6 +1196,7 @@ MonoBehaviour:
   rychlostOtacania: 10
   playerBody: {fileID: 1039010541}
   moveDirection: {x: 0, y: 0, z: 0}
+  zablokovany: 0
   moveSpeed: 5
   jump: {fileID: 8973153567499922699, guid: 3c16b34609b7a20418ece9e7a96ffb9b, type: 3}
   jumpStrength: 10
@@ -1241,6 +1242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   interact: {fileID: 380525368987446867, guid: 3c16b34609b7a20418ece9e7a96ffb9b, type: 3}
+  pohyb: {fileID: 1039010543}
   dosah: 3
   dialog: {fileID: 1165738700}
 --- !u!1 &1120634223

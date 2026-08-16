@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 public class InteractionScript : MonoBehaviour
 {
     public InputActionReference interact;
+
+    public PlayerMovementScript pohyb;
     public float dosah = 3f;
 
     private NpcScript blizkeNpc;
@@ -18,6 +20,7 @@ public class InteractionScript : MonoBehaviour
             if (interact.action.WasPressedThisFrame())
             {
                 dialog.Skry();
+                pohyb.zablokovany = false;
             }
 
             return;
@@ -28,6 +31,7 @@ public class InteractionScript : MonoBehaviour
         if (blizkeNpc != null && interact.action.WasPressedThisFrame())
         {
             dialog.Zobraz(blizkeNpc.meno, blizkeNpc.text);
+            pohyb.zablokovany = true;
         }
     }
 

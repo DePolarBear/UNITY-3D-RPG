@@ -12,6 +12,8 @@ public class PlayerMovementScript : MonoBehaviour
     public Rigidbody playerBody;
     public Vector3 moveDirection;
 
+    public bool zablokovany = false;
+
     [SerializeField] private float moveSpeed = 5f;
 
     [Header("Skok")]
@@ -27,6 +29,13 @@ public class PlayerMovementScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (zablokovany)
+        {
+            moveDirection = Vector3.zero;
+            return;
+        }
+
         moveDirection = move.action.ReadValue<Vector3>();
 
         if (jump.action.WasPressedThisFrame())
