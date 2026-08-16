@@ -22,6 +22,8 @@ public class VillageSpawnerScript : MonoBehaviour
     public int minDomov = 4;
     public int maxDomov = 8;
     public float polomerZastavby = 15f;
+    public GameObject[] prefabyJedinecne;
+    [Range(0f, 1f)] public float sancaJedinecnej = 0.7f;
 
     [Header("NPC")]
     public GameObject prefabNpc;
@@ -176,29 +178,53 @@ public class VillageSpawnerScript : MonoBehaviour
 
     private void PostavDomy(Vector3 stred)
     {
-        if (prefabyDomov.Length == 0)
+        // 1. zostav zoznam, co sa v tejto dedine postavi
+        List<GameObject> naPostavenie = new List<GameObject>();
+
+        foreach (GameObject jedinecna in prefabyJedinecne)
         {
-            return;
+            if (Random.value < sancaJedinecnej)
+            {
+                naPostavenie.Add(jedinecna);
+            }
         }
 
         int pocet = Random.Range(minDomov, maxDomov + 1);
 
-        for (int i = 0; i < pocet; i++)
+        while (naPostavenie.Count < pocet && prefabyDomov.Length > 0)
         {
-            // rovnomerne po kruhu, ale s vychylenim
-            float uhol = (i + Random.Range(-0.3f, 0.3f)) * Mathf.PI * 2f / pocet;
+            naPostavenie.Add(prefabyDomov[Random.Range(0, prefabyDomov.Length)]);
+        }
+
+        if (naPostavenie.Count == 0)
+        {
+            return;
+        }
+
+        // 2. premiesat, nech jedinecne nestoja vzdy na rovnakom mieste
+        for (int i = 0; i < naPostavenie.Count; i++)
+        {
+            int j = Random.Range(i, naPostavenie.Count);
+            GameObject docasny = naPostavenie[i];
+            naPostavenie[i] = naPostavenie[j];
+            naPostavenie[j] = docasny;
+        }
+
+        // 3. rozostavit po kruhu
+        for (int i = 0; i < naPostavenie.Count; i++)
+        {
+            float uhol = (i + Random.Range(-0.3f, 0.3f)) * Mathf.PI * 2f / naPostavenie.Count;
             float vzdialenost = polomerZastavby * Random.Range(0.6f, 1f);
 
             float px = stred.x + Mathf.Cos(uhol) * vzdialenost;
             float pz = stred.z + Mathf.Sin(uhol) * vzdialenost;
             float py = terrain.transform.position.y + terrain.SampleHeight(new Vector3(px, 0f, pz));
 
-            // otocit tvarou do stredu dediny
             Vector3 doStredu = new Vector3(stred.x - px, 0f, stred.z - pz);
             Quaternion otocenie = Quaternion.LookRotation(doStredu);
 
-            GameObject prefab = prefabyDomov[Random.Range(0, prefabyDomov.Length)];
-            Instantiate(prefab, new Vector3(px, py, pz), otocenie * Quaternion.Euler(opravaRotacie), transform);
+            Instantiate(naPostavenie[i], new Vector3(px, py, pz),
+                otocenie * Quaternion.Euler(opravaRotacie), transform);
         }
     }
 }

@@ -280,7 +280,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.1521234, y: 0.000000041656318, z: -0.000000006411522, w: 0.98836154}
-  m_LocalPosition: {x: 242.4, y: 60.50353, z: 527.03143}
+  m_LocalPosition: {x: 311.7, y: 59.173527, z: 755.6315}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -648,15 +648,15 @@ MonoBehaviour:
   okrajStop: 0.05
   opravaRotacie: {x: 0, y: -90, z: 0}
   prefabyDomov:
-  - {fileID: 7320281983326923416, guid: cc813a6e1b9cb5244baf0e5d125570fd, type: 3}
-  - {fileID: 1298580185719300852, guid: 6c1c653d92504634e9aae2e54c901283, type: 3}
-  - {fileID: 5594060413004727227, guid: a51d46ac2c044cb4a81ed834c75f1054, type: 3}
-  - {fileID: 4263613500853271628, guid: 5355315a110badb45baa385d52edf302, type: 3}
   - {fileID: 1298580185719300852, guid: 6c1c653d92504634e9aae2e54c901283, type: 3}
   - {fileID: 5594060413004727227, guid: a51d46ac2c044cb4a81ed834c75f1054, type: 3}
   minDomov: 3
   maxDomov: 6
   polomerZastavby: 30
+  prefabyJedinecne:
+  - {fileID: 7320281983326923416, guid: cc813a6e1b9cb5244baf0e5d125570fd, type: 3}
+  - {fileID: 4263613500853271628, guid: 5355315a110badb45baa385d52edf302, type: 3}
+  sancaJedinecnej: 0.7
   prefabNpc: {fileID: 4523870795209990248, guid: 4b0715c0abec9f343ab3f8913cd0937a, type: 3}
   menaNpc:
   - Aldric
@@ -815,7 +815,7 @@ Transform:
   m_GameObject: {fileID: 1039010536}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 242.4, y: 59, z: 531.8}
+  m_LocalPosition: {x: 311.7, y: 57.67, z: 760.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1177,7 +1177,7 @@ Transform:
   m_GameObject: {fileID: 1623900973}
   serializedVersion: 2
   m_LocalRotation: {x: 0.1521234, y: 0.00000004165632, z: -0.0000000064115215, w: 0.98836154}
-  m_LocalPosition: {x: 242.4, y: 60.50353, z: 527.03143}
+  m_LocalPosition: {x: 311.7, y: 59.173527, z: 755.6315}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

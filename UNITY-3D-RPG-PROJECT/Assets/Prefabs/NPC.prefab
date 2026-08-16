@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4523870795209990248}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 554.76337, y: 15.42936, z: 472.03906}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -127,3 +127,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e02e8a0d20aedb4da563b84a1111708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  meno: Dedincan
